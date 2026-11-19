@@ -37,18 +37,26 @@ export function validateDraft(raw, inspection) {
 // nunca se tocan al generar. El resultado solo vive en `draft`; guardarlo
 // requiere la acción separada confirmDraft. Si el proveedor cae, solo cambia
 // aiState a 'error' y el usuario puede seguir trabajando manualmente.
+//
+// ── Incidente R · Respuestas fuera de orden ─────────────────────────────────
+// Una respuesta exitosa no es necesariamente aplicable: solo se aplica si
+// corresponde a la revisión de entrada Y a la solicitud vigente. La
+// comprobación y la escritura ocurren en una sola operación (commitDraft /
+// failIfCurrent, compare-and-swap síncrono del store), sin esperas arbitrarias.
+// Un error de una solicitud antigua tampoco puede degradar el estado actual.
 export async function generateDraft(store, id, provider) {
   const snapshot = store.beginRequest(id);
+  const expected = { expectedRevision: snapshot.revision, requestId: snapshot.requestId };
   try {
     const payload = validateDraft(await provider.generate(snapshot), snapshot);
-    store.update(id, {
+    const applied = store.commitDraft(id, {
+      ...expected,
       draft: { payload, sourceRevision: snapshot.revision, requestId: snapshot.requestId },
-      aiState: 'ready',
     });
-    return { ok: true };
+    return applied ? { ok: true } : { ok: false, error: 'STALE_RESPONSE' };
   } catch (error) {
-    store.update(id, { aiState: 'error' });
-    return { ok: false, error: error.message };
+    const applied = store.failIfCurrent(id, expected);
+    return { ok: false, error: applied ? error.message : 'STALE_RESPONSE' };
   }
 }
 
