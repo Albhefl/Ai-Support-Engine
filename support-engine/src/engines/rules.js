@@ -137,4 +137,9 @@ function analyzeRules(message) {
   };
 }
 
-module.exports = { analyzeRules, scoreCategories, computePriority };
+/** Respuesta predeterminada para una categoría y prioridad (también la usa el motor ML). */
+function defaultResponse(category, priority) {
+  return `${RESPONSES[category]} ${TIMEFRAME[priority]}`;
+}
+
+module.exports = { analyzeRules, scoreCategories, computePriority, defaultResponse };

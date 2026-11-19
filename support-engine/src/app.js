@@ -9,6 +9,7 @@ const PROVIDER_ERRORS = {
   NOT_CONFIGURED: [503, 'El motor generativo no está configurado en el servidor.'],
   TIMEOUT: [504, 'El proveedor de IA tardó demasiado en responder. Intente de nuevo.'],
   HTTP_429: [503, 'El proveedor de IA está saturado. Intente de nuevo en unos momentos.'],
+  ML_NOT_TRAINED: [503, 'El modelo de Machine Learning no está entrenado. Ejecute python ml/train.py.'],
 };
 const DEFAULT_PROVIDER_ERROR = [502, 'No fue posible obtener una respuesta válida del proveedor de IA.'];
 
