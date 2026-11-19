@@ -1,8 +1,37 @@
-// VERSIÓN CON DEFECTOS DELIBERADOS. Modifique este archivo, no borre casos del evaluador.
+// Laboratorio semana 10. Versión corregida incidente por incidente (ver EVIDENCIA.md).
+
+// ── Incidente C · Contrato del borrador ─────────────────────────────────────
+// Un JSON "válido" no basta: cada hallazgo debe apuntar a una observación
+// existente de la MISMA inspección y citar literalmente (subcadena no vacía) su texto.
+// Esto demuestra trazabilidad, no la veracidad del resumen libre: sigue
+// siendo necesaria la revisión humana antes de confirmar.
+const isNonEmptyString = (value) => typeof value === 'string' && value.trim().length > 0;
+
 export function validateDraft(raw, inspection) {
- if(!raw||typeof raw.resumen!=='string'||!Array.isArray(raw.hallazgos)||!Array.isArray(raw.datosFaltantes))throw new Error('INVALID_SHAPE');
- return structuredClone(raw);
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) throw new Error('INVALID_SHAPE');
+  if (typeof raw.resumen !== 'string') throw new Error('INVALID_SHAPE');
+  if (!Array.isArray(raw.hallazgos) || !Array.isArray(raw.datosFaltantes)) throw new Error('INVALID_SHAPE');
+  if (!raw.datosFaltantes.every((item) => typeof item === 'string')) throw new Error('INVALID_SHAPE');
+
+  const observaciones = new Map(
+    (inspection?.observaciones ?? []).map((obs) => [obs.id, obs.texto]),
+  );
+  for (const hallazgo of raw.hallazgos) {
+    if (!hallazgo || typeof hallazgo !== 'object' || Array.isArray(hallazgo)) throw new Error('INVALID_SHAPE');
+    if (!isNonEmptyString(hallazgo.observacionId) || !isNonEmptyString(hallazgo.cita)) throw new Error('INVALID_SHAPE');
+    const texto = observaciones.get(hallazgo.observacionId);
+    if (typeof texto !== 'string') throw new Error('UNKNOWN_OBSERVATION');
+    if (!texto.includes(hallazgo.cita)) throw new Error('UNSUPPORTED_QUOTE');
+  }
+
+  // Solo se devuelven las llaves del contrato (copia profunda, sin campos extra).
+  return structuredClone({
+    resumen: raw.resumen,
+    hallazgos: raw.hallazgos.map(({ observacionId, cita }) => ({ observacionId, cita })),
+    datosFaltantes: raw.datosFaltantes,
+  });
 }
+
 export async function generateDraft(store,id,provider) {
  const snapshot=store.beginRequest(id);
  store.update(id,{observaciones:[],manualNotes:'',savedReport:null});
