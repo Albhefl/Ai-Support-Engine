@@ -1,0 +1,21 @@
+              precision    recall  f1-score   support
+
+      ACCESS       0.83      0.83      0.83         6
+         BUG       0.86      1.00      0.92         6
+     FEATURE       1.00      0.83      0.91         6
+    SECURITY       0.67      0.67      0.67         6
+
+    accuracy                           0.83        24
+   macro avg       0.84      0.83      0.83        24
+weighted avg       0.84      0.83      0.83        24
+
+['ACCESS']
+
+Matriz de confusión (filas = real, columnas = predicho):
+          ACCESS  BUG  FEATURE  SECURITY
+ACCESS         5    0        0         1
+BUG            0    6        0         0
+FEATURE        0    0        5         1
+SECURITY       1    1        0         4
+
+Modelo exportado en ml/model.json

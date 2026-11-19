@@ -8,7 +8,7 @@
 
 const CATEGORIES = Object.freeze(['ACCESS', 'BUG', 'FEATURE', 'SECURITY']);
 const PRIORITIES = Object.freeze(['LOW', 'MEDIUM', 'HIGH', 'CRITICAL']);
-const MODES = Object.freeze(['traditional', 'generative']);
+const MODES = Object.freeze(['traditional', 'generative', 'ml']);
 
 const MAX_MESSAGE_LENGTH = 2000;
 const MAX_RESPONSE_LENGTH = 1200;

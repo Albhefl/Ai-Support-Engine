@@ -18,7 +18,9 @@ const { finalizeResult } = require('../src/contract');
 
 const { cases } = require('./cases.json');
 const engines = createEngines();
-const MODES = ['traditional', 'generative'];
+const MODES = (process.env.BENCH_MODES || 'traditional,generative,ml').split(',');
+// Prefijo de los archivos de salida (results.md/.json por defecto).
+const OUT = process.env.BENCH_OUT || 'results';
 const PAUSE_MS = Number(process.env.BENCH_PAUSE_MS) || 1500; // evita el límite de peticiones del proveedor
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -51,13 +53,11 @@ async function main() {
       if (mode === 'generative') await sleep(PAUSE_MS);
     }
     rows.push(row);
-    const t = row.results.traditional;
-    const g = row.results.generative;
-    console.log(
-      `${testCase.id.padEnd(3)} ref=${testCase.expected.category}/${testCase.expected.priority} | ` +
-        `trad=${t.category || t.error}/${t.priority || '-'} ${t.correct ? '✔' : '✘'} | ` +
-        `gen=${g.category || g.error}/${g.priority || '-'} ${g.correct ? '✔' : '✘'}`,
-    );
+    const parts = MODES.map((m) => {
+      const x = row.results[m];
+      return `${m}=${x.category || x.error}/${x.priority || '-'} ${x.correct ? '✔' : '✘'}`;
+    });
+    console.log(`${testCase.id.padEnd(3)} ref=${testCase.expected.category}/${testCase.expected.priority} | ${parts.join(' | ')}`);
   }
 
   const summary = {};
@@ -78,22 +78,24 @@ async function main() {
     executedAt: new Date().toISOString(),
     node: process.version,
     generativeModels: process.env.GEMINI_API_KEY
-      ? [...new Set(rows.map((r) => r.results.generative.model).filter(Boolean))]
+      ? [...new Set(rows.map((r) => r.results.generative?.model).filter(Boolean))]
       : null,
   };
-  fs.writeFileSync(path.join(__dirname, 'results.json'), JSON.stringify({ meta, summary, rows }, null, 2) + '\n');
+  fs.writeFileSync(path.join(__dirname, `${OUT}.json`), JSON.stringify({ meta, summary, rows }, null, 2) + '\n');
 
   const mark = (ok) => (ok ? 'Sí' : 'No');
   const cell = (r) => (r.error ? `error: ${r.error}` : `${r.category} / ${r.priority}`);
   const lines = [
     `Ejecución: ${meta.executedAt} · Node ${meta.node} · modelo(s) generativo(s): ${meta.generativeModels ? meta.generativeModels.join(', ') || 'ninguno respondió' : 'no configurado'}`,
     '',
-    '| # | Tipo | Referencia | Tradicional | Formato | Correcto | Generativo | Formato | Correcto |',
-    '|---|---|---|---|:-:|:-:|---|:-:|:-:|',
+    `| # | Tipo | Referencia | ${MODES.map((m) => `${m} | Formato | Correcto`).join(' | ')} |`,
+    `|---|---|---|${MODES.map(() => '---|:-:|:-:').join('|')}|`,
     ...rows.map((r) => {
-      const t = r.results.traditional;
-      const g = r.results.generative;
-      return `| ${r.id} | ${r.type} | ${r.expected.category} / ${r.expected.priority} | ${cell(t)} | ${mark(t.formatOk)} | ${mark(t.correct)} | ${cell(g)} | ${mark(g.formatOk)} | ${mark(g.correct)} |`;
+      const cols = MODES.map((m) => {
+        const x = r.results[m];
+        return `${cell(x)} | ${mark(x.formatOk)} | ${mark(x.correct)}`;
+      });
+      return `| ${r.id} | ${r.type} | ${r.expected.category} / ${r.expected.priority} | ${cols.join(' | ')} |`;
     }),
     '',
     '| Motor | Correctos (cat. + prioridad) | Solo categoría | Formato válido | Latencia promedio |',
@@ -103,7 +105,7 @@ async function main() {
       return `| ${m} | ${s.correct}/${s.total} (**${s.accuracy}%**) | ${s.categoryOk}/${s.total} | ${s.formatOk}/${s.total} | ${s.avgMs} ms |`;
     }),
   ];
-  fs.writeFileSync(path.join(__dirname, 'results.md'), lines.join('\n') + '\n');
+  fs.writeFileSync(path.join(__dirname, `${OUT}.md`), lines.join('\n') + '\n');
 
   console.log('\n' + lines.slice(-4).join('\n'));
 }
