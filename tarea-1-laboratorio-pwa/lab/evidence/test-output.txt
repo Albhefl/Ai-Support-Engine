@@ -1,0 +1,112 @@
+TAP version 13
+# Subtest: C-01 Acepta un borrador sustentado
+ok 1 - C-01 Acepta un borrador sustentado
+  ---
+  duration_ms: 0.771917
+  type: 'test'
+  ...
+# Subtest: C-02 Rechaza cita inventada aunque el JSON tenga estructura válida
+ok 2 - C-02 Rechaza cita inventada aunque el JSON tenga estructura válida
+  ---
+  duration_ms: 0.160083
+  type: 'test'
+  ...
+# Subtest: C-03 Rechaza referencia inexistente y forma inválida
+ok 3 - C-03 Rechaza referencia inexistente y forma inválida
+  ---
+  duration_ms: 0.070334
+  type: 'test'
+  ...
+# Subtest: D-01 Generar no guarda sin confirmación ni altera observaciones/notas
+ok 4 - D-01 Generar no guarda sin confirmación ni altera observaciones/notas
+  ---
+  duration_ms: 0.343834
+  type: 'test'
+  ...
+# Subtest: D-02 Caída del proveedor conserva contenido manual y guardado anterior
+ok 5 - D-02 Caída del proveedor conserva contenido manual y guardado anterior
+  ---
+  duration_ms: 0.10975
+  type: 'test'
+  ...
+# Subtest: R-01 Respuesta de revisión anterior no sobrescribe edición reciente
+ok 6 - R-01 Respuesta de revisión anterior no sobrescribe edición reciente
+  ---
+  duration_ms: 0.154584
+  type: 'test'
+  ...
+# Subtest: R-02 Dos solicitudes: gana la vigente, no la que termina al final
+ok 7 - R-02 Dos solicitudes: gana la vigente, no la que termina al final
+  ---
+  duration_ms: 0.100334
+  type: 'test'
+  ...
+# Subtest: R-03 Fallo antiguo no cambia el estado de una respuesta nueva lista
+ok 8 - R-03 Fallo antiguo no cambia el estado de una respuesta nueva lista
+  ---
+  duration_ms: 0.149083
+  type: 'test'
+  ...
+# Subtest: L-01 Recuperar mantiene datos pendientes y coherencia servidor/worker/shell
+ok 9 - L-01 Recuperar mantiene datos pendientes y coherencia servidor/worker/shell
+  ---
+  duration_ms: 0.2695
+  type: 'test'
+  ...
+# Subtest: L-02 No recuperar si faltan assets; conservar estado anterior al rechazo
+ok 10 - L-02 No recuperar si faltan assets; conservar estado anterior al rechazo
+  ---
+  duration_ms: 0.264625
+  type: 'test'
+  ...
+# Subtest: L-03 No retroceder a código incompatible con esquema actual
+ok 11 - L-03 No retroceder a código incompatible con esquema actual
+  ---
+  duration_ms: 0.101042
+  type: 'test'
+  ...
+# Subtest: HTTP: health y generación con revisión humana y datos conservados
+ok 12 - HTTP: health y generación con revisión humana y datos conservados
+  ---
+  duration_ms: 15.170125
+  type: 'test'
+  ...
+# Subtest: C-V1 cita vacía o de otra observación se rechaza
+ok 13 - C-V1 cita vacía o de otra observación se rechaza
+  ---
+  duration_ms: 0.43975
+  type: 'test'
+  ...
+# Subtest: D-V1 proveedor con cita inventada no crea borrador ni toca lo confirmado
+ok 14 - D-V1 proveedor con cita inventada no crea borrador ni toca lo confirmado
+  ---
+  duration_ms: 0.6725
+  type: 'test'
+  ...
+# Subtest: R-V1 confirmar un borrador vuelto obsoleto por una edición falla sin guardar
+ok 15 - R-V1 confirmar un borrador vuelto obsoleto por una edición falla sin guardar
+  ---
+  duration_ms: 0.18425
+  type: 'test'
+  ...
+# Subtest: R-V2 error de la solicitud vigente sí marca error tras una antigua exitosa
+ok 16 - R-V2 error de la solicitud vigente sí marca error tras una antigua exitosa
+  ---
+  duration_ms: 0.1125
+  type: 'test'
+  ...
+# Subtest: L-V1 release destino sin metadatos se rechaza sin mutar el estado
+ok 17 - L-V1 release destino sin metadatos se rechaza sin mutar el estado
+  ---
+  duration_ms: 0.170333
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 74.671292

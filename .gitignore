@@ -1,0 +1,18 @@
+# Dependencias
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Secretos: nunca se suben
+.env
+.env.*
+!.env.example
+
+# Sistema y editores
+.DS_Store
+.vscode/
+.idea/
+*.log

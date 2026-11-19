@@ -1,0 +1,17 @@
+#!/bin/sh
+# Bloquea cualquier push directo a main/master. Todo cambio entra por Pull Request.
+current_branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+
+while read -r _local_ref _local_sha remote_ref _remote_sha; do
+  case "$remote_ref" in
+    refs/heads/main|refs/heads/master)
+      echo "❌ Push directo a ${remote_ref#refs/heads/} bloqueado. Usa una rama tarea-N/... y abre un Pull Request."
+      exit 1 ;;
+  esac
+done
+
+if [ "$current_branch" = "main" ] || [ "$current_branch" = "master" ]; then
+  echo "❌ Estás en '$current_branch'. Cambia a la rama de la tarea antes de hacer push."
+  exit 1
+fi
+exit 0

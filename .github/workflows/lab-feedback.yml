@@ -1,0 +1,25 @@
+name: Laboratorio semana 10 - feedback
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    # El laboratorio vive en una carpeta auxiliar del repositorio (ver PRACTICA.md).
+    defaults:
+      run:
+        working-directory: tarea-1-laboratorio-pwa/lab
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/evaluate.mjs --out evidence/after.json
+      - run: node --test tests/*.test.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: diagnostico-w10
+          path: tarea-1-laboratorio-pwa/lab/evidence/*.json
+          if-no-files-found: warn
