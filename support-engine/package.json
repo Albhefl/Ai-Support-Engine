@@ -1,0 +1,21 @@
+{
+  "name": "support-engine",
+  "version": "1.0.0",
+  "description": "Clasificador de solicitudes de soporte con motor de reglas y motor generativo (Gemini)",
+  "author": "José Alberto Herrera Flores",
+  "license": "MIT",
+  "private": true,
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test test/*.test.js",
+    "compare": "node bench/compare.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^4.22.3"
+  }
+}
