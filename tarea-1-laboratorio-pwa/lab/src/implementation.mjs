@@ -63,8 +63,24 @@ export async function generateDraft(store, id, provider) {
 export function confirmDraft(store, id) {
   return store.confirm(id);
 }
-export function recoverRelease(state,release) {
- state.serverVersion=release.id;
- state.records=[];
- return state;
+// ── Incidente L · Rollback completo y compatible ────────────────────────────
+// Antes de tocar el estado se verifican las precondiciones: los assets del
+// release destino están en caché y el destino soporta el esquema actual de
+// datos. Si falla algo se lanza error sin modificar nada. Si procede, servidor,
+// worker y shell pasan juntos al destino; los registros pendientes y las
+// cachés (incluidas las de otras apps) se conservan.
+export function recoverRelease(state, release) {
+  if (!release || typeof release.id !== 'string' || typeof release.cacheName !== 'string') {
+    throw new Error('INVALID_RELEASE');
+  }
+  if (!Array.isArray(state.assetCaches) || !state.assetCaches.includes(release.cacheName)) {
+    throw new Error('MISSING_ASSETS');
+  }
+  if (!Array.isArray(release.supportedSchemas) || !release.supportedSchemas.includes(state.schemaVersion)) {
+    throw new Error('INCOMPATIBLE_SCHEMA');
+  }
+  state.serverVersion = release.id;
+  state.workerVersion = release.id;
+  state.shellVersion = release.id;
+  return state;
 }
