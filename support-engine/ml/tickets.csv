@@ -1,0 +1,121 @@
+message,category
+Sería útil tener una aplicación para tabletas.,FEATURE
+Los respaldos de la base de datos están accesibles públicamente en internet.,SECURITY
+La búsqueda no devuelve resultados aunque el registro existe.,BUG
+Sería bueno conectar el sistema con nuestra tienda en línea.,FEATURE
+Cambié de celular y perdí la app de autenticación de doble factor.,ACCESS
+El sistema calcula mal los impuestos en las facturas.,BUG
+Me gustaría tener un modo oscuro en la aplicación.,FEATURE
+Agreguen por favor atajos de teclado para las acciones frecuentes.,FEATURE
+Un compañero compartió su usuario y contraseña en el chat general.,SECURITY
+No recuerdo mi contraseña y el sistema no me deja restablecerla.,ACCESS
+Mi usuario aparece como bloqueado después de tres intentos fallidos.,ACCESS
+El contador de inventario muestra números negativos.,BUG
+La nómina se generó con montos duplicados para algunos empleados.,BUG
+Quisiera que se pudieran archivar los proyectos terminados.,FEATURE
+El carrito de compras se vacía solo al cambiar de página.,BUG
+Mi cuenta quedó desactivada al regresar de vacaciones.,ACCESS
+Las notificaciones por correo llegan repetidas cinco veces.,BUG
+El portal de proveedores no reconoce mi usuario.,ACCESS
+El inicio de sesión único no funciona con mi cuenta corporativa.,ACCESS
+Nuestro sitio fue modificado y ahora muestra contenido extraño.,SECURITY
+Queremos que el sistema genere códigos QR para cada producto.,FEATURE
+Me gustaría ver un resumen semanal de mis tareas pendientes.,FEATURE
+No puedo acceder a la VPN con mis credenciales del dominio.,ACCESS
+Hay un usuario administrador que nadie del equipo reconoce.,SECURITY
+Al imprimir la orden de compra faltan los últimos renglones.,BUG
+Aparece el mensaje 'Error 404' al abrir mis facturas.,BUG
+Sería conveniente agregar una calculadora de descuentos en las ventas.,FEATURE
+Se filtró una lista de clientes con sus datos personales.,SECURITY
+Un proveedor nos avisó que le llegaron facturas falsas a nombre de la empresa.,SECURITY
+Las fechas se muestran con un día de diferencia en el calendario.,BUG
+El formulario de búsqueda es vulnerable a inyección SQL.,SECURITY
+El código de verificación por SMS nunca me llega.,ACCESS
+La aplicación consume toda la memoria y se vuelve muy lenta.,BUG
+Los cambios que hago en mi perfil no se guardan.,BUG
+Detectamos tráfico inusual hacia un servidor desconocido desde la red interna.,SECURITY
+La aplicación de escritorio muestra una excepción al iniciar.,BUG
+Soy nuevo en la empresa y todavía no tengo usuario para el sistema.,ACCESS
+Sugiero integrar la plataforma con Microsoft Teams.,FEATURE
+Los reportes mensuales muestran totales incorrectos.,BUG
+Nos ayudaría mucho poder importar clientes desde un archivo CSV.,FEATURE
+Recibí una llamada de alguien que se hizo pasar por el banco y pidió mi token.,SECURITY
+Las imágenes de los productos no se ven en el catálogo.,BUG
+Propongo incluir un historial de cambios en cada registro.,FEATURE
+Me gustaría poder etiquetar a mis compañeros en las notas.,FEATURE
+Mi jefe me dio de alta pero el usuario no aparece activo.,ACCESS
+La aplicación móvil se cierra al abrir la sección de notificaciones.,BUG
+Al subir un archivo grande aparece un error inesperado.,BUG
+El formulario acepta correos inválidos y luego truena al enviar.,BUG
+La página de inicio tarda más de un minuto en cargar.,BUG
+Las contraseñas de los usuarios se guardan en texto plano.,SECURITY
+Un archivo adjunto sospechoso se ejecutó en mi equipo y ahora se comporta raro.,SECURITY
+¿Podrían agregar la opción de firmar documentos electrónicamente?,FEATURE
+El filtro por estado no funciona en la tabla de clientes.,BUG
+Es posible ver los datos de otros usuarios cambiando el identificador en la URL.,SECURITY
+Proponemos un panel de métricas para la dirección.,FEATURE
+Sería práctico tener plantillas para los correos de seguimiento.,FEATURE
+El certificado del sitio fue reemplazado por uno no confiable.,SECURITY
+La página de pagos se puede cargar sin HTTPS.,SECURITY
+Sería genial poder programar el envío de reportes por correo.,FEATURE
+Alguien inició sesión en mi cuenta desde otro país sin mi permiso.,SECURITY
+Me cambiaron de área y ahora no tengo los permisos que necesito.,ACCESS
+El sistema me pide verificar mi identidad pero no tengo acceso a ese correo.,ACCESS
+El chat interno deja de recibir mensajes después de un rato.,BUG
+Nuestro antivirus detectó un ransomware en la computadora de recepción.,SECURITY
+Propongo que el sistema permita adjuntar varios archivos a la vez.,FEATURE
+Mi token de acceso a la API fue revocado y necesito uno nuevo.,ACCESS
+Sería útil tener recordatorios automáticos de pagos pendientes.,FEATURE
+Me llegan cargos en mi tarjeta que no reconozco después de comprar en la plataforma.,SECURITY
+Hay un script en la página que roba los datos de las tarjetas.,SECURITY
+La gráfica del dashboard aparece vacía desde la actualización.,BUG
+Necesito acceso de solo lectura al repositorio de documentos.,ACCESS
+Después de cambiar mi contraseña ya no puedo entrar desde el móvil.,ACCESS
+Me sale que mi contraseña caducó y no me deja crear una nueva.,ACCESS
+Sugerimos permitir comentarios en los documentos compartidos.,FEATURE
+Al exportar a PDF el documento sale con las tablas cortadas.,BUG
+Agreguen la opción de pagar con transferencia bancaria.,FEATURE
+Detectamos múltiples intentos de acceso por fuerza bruta en el servidor.,SECURITY
+¿Es posible agregar soporte para varios idiomas?,FEATURE
+La pantalla de login se queda cargando y nunca me deja entrar.,ACCESS
+Alguien cambió la contraseña de mi cuenta sin que yo lo pidiera.,SECURITY
+El sistema duplica los pedidos cuando doy clic dos veces.,BUG
+No tengo acceso al tablero de ventas que antes sí veía.,ACCESS
+Quisiéramos un reporte de productividad por equipo.,FEATURE
+Necesito que me den permisos para entrar al módulo de contabilidad.,ACCESS
+Un empleado publicó por error las credenciales de la base de datos en un repositorio público.,SECURITY
+Un usuario logró escalar privilegios y ver información de recursos humanos.,SECURITY
+Me llegó un enlace falso que imita la página de inicio de sesión de la empresa.,SECURITY
+Recibí un correo que se hace pasar por soporte y pide mi contraseña.,SECURITY
+Pedimos que se pueda duplicar una cotización existente.,FEATURE
+Un exempleado todavía puede entrar a los sistemas internos.,SECURITY
+Se perdió una laptop de la empresa con información confidencial.,SECURITY
+Encontramos una memoria USB con malware conectada a un equipo de la oficina.,SECURITY
+¿Podrían habilitar la descarga de facturas en formato XML?,FEATURE
+Perdí mi llave de seguridad física y no puedo autenticarme.,ACCESS
+"Olvidé mi nombre de usuario, ¿cómo lo recupero?",ACCESS
+Sería bueno que el sistema sugiriera respuestas automáticas a clientes.,FEATURE
+El servidor de correo está enviando spam desde nuestras cuentas.,SECURITY
+La paginación de la lista de empleados se salta registros.,BUG
+Propongo un buscador con filtros avanzados por fecha y monto.,FEATURE
+Las claves de la API aparecen visibles en el código de la página web.,SECURITY
+El botón de guardar no hace nada cuando lleno el formulario.,BUG
+No puedo ingresar con mi cuenta de Google en la plataforma.,ACCESS
+Los archivos adjuntos desaparecen después de enviar el ticket.,BUG
+El mapa de entregas no carga en el navegador Safari.,BUG
+El enlace para cambiar la contraseña dice que ya expiró.,ACCESS
+Al iniciar sesión me dice que mis credenciales son inválidas aunque son correctas.,ACCESS
+No me llega el correo de activación de la cuenta.,ACCESS
+Quisiera que el tablero se pudiera personalizar con mis gráficas favoritas.,FEATURE
+El correo para recuperar la cuenta llega vacío.,ACCESS
+Me gustaría poder cambiar el orden de las columnas de la tabla.,FEATURE
+El servidor responde con timeout al consultar el inventario.,BUG
+Me pide una contraseña de administrador para instalar el cliente.,ACCESS
+Me gustaría recibir notificaciones push cuando cambie el estado de un pedido.,FEATURE
+Recibimos un mensaje que amenaza con publicar nuestra información si no pagamos.,SECURITY
+Mi sesión se cierra sola cada cinco minutos y tengo que volver a entrar.,ACCESS
+Me aparece acceso denegado cuando intento abrir la carpeta compartida.,ACCESS
+Necesitamos una vista de calendario para las entregas programadas.,FEATURE
+La sincronización con el calendario falla con un error de conexión.,BUG
+Quiero cambiar el correo asociado a mi cuenta porque ya no uso el anterior.,ACCESS
+La app se congela cuando intento grabar un audio.,BUG
