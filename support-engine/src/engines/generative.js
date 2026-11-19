@@ -10,7 +10,8 @@
  *   instrucciones. Antes de enviarlo se redactan posibles credenciales.
  * - La API key solo se lee de process.env y viaja en el header
  *   x-goog-api-key (no en la URL), así no aparece en logs ni errores.
- * - Timeout, un reintento ante 429/5xx/timeout y errores tipados
+ * - Timeout, un reintento ante 429/5xx/timeout, modelo de respaldo si el
+ *   principal está saturado o no disponible, y errores tipados
  *   (ProviderError) que la API traduce a mensajes genéricos.
  */
 
@@ -102,18 +103,28 @@ function parseModelOutput(payload) {
 }
 
 const RETRYABLE = new Set(['TIMEOUT', 'HTTP_429', 'HTTP_500', 'HTTP_502', 'HTTP_503', 'HTTP_504', 'NETWORK']);
+// Errores por los que vale la pena intentar con el modelo de respaldo.
+const FALLBACK_ON = new Set([...RETRYABLE, 'HTTP_404']);
+
+const DEFAULT_MODEL = 'gemini-3.6-flash';
+const DEFAULT_FALLBACKS = 'gemini-3.5-flash-lite';
+
+const parseList = (value) => String(value || '').split(',').map((s) => s.trim()).filter(Boolean);
 
 function createGenerativeEngine({
   apiKey = process.env.GEMINI_API_KEY,
-  model = process.env.GEMINI_MODEL || 'gemini-2.5-flash',
-  timeoutMs = Number(process.env.GEMINI_TIMEOUT_MS) || 20000,
+  model = process.env.GEMINI_MODEL || DEFAULT_MODEL,
+  fallbackModels = parseList(process.env.GEMINI_FALLBACK_MODELS ?? DEFAULT_FALLBACKS),
+  timeoutMs = Number(process.env.GEMINI_TIMEOUT_MS) || 30000,
   retries = 1,
   fetchImpl = globalThis.fetch,
 } = {}) {
-  async function callOnce(message) {
+  const models = [model, ...fallbackModels.filter((m) => m !== model)];
+
+  async function callOnce(modelName, message) {
     let res;
     try {
-      res = await fetchImpl(`${API_BASE}/${encodeURIComponent(model)}:generateContent`, {
+      res = await fetchImpl(`${API_BASE}/${encodeURIComponent(modelName)}:generateContent`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
         signal: AbortSignal.timeout(timeoutMs),
@@ -146,23 +157,27 @@ function createGenerativeEngine({
     if (!apiKey) throw new ProviderError('NOT_CONFIGURED');
 
     let lastError;
-    for (let attempt = 0; attempt <= retries; attempt++) {
-      try {
-        const data = await callOnce(message);
-        return {
-          category: data.category,
-          priority: data.priority,
-          response: data.response.trim(),
-          // Defensa en profundidad: si las reglas detectan manipulación, se exige revisión
-          // humana aunque el modelo no lo haya marcado. No se cambia lo que clasificó el modelo.
-          requiresHumanReview: data.requiresHumanReview || detectManipulation(message),
-          mode: 'generative',
-        };
-      } catch (err) {
-        lastError = err;
-        if (!RETRYABLE.has(err.code) || attempt === retries) break;
-        await new Promise((resolve) => setTimeout(resolve, 800 * (attempt + 1)));
+    for (const modelName of models) {
+      for (let attempt = 0; attempt <= retries; attempt++) {
+        try {
+          const data = await callOnce(modelName, message);
+          return {
+            category: data.category,
+            priority: data.priority,
+            response: data.response.trim(),
+            // Defensa en profundidad: si las reglas detectan manipulación, se exige revisión
+            // humana aunque el modelo no lo haya marcado. No se cambia lo que clasificó el modelo.
+            requiresHumanReview: data.requiresHumanReview || detectManipulation(message),
+            mode: 'generative',
+            model: modelName, // informativo; el contrato público lo descarta
+          };
+        } catch (err) {
+          lastError = err;
+          if (!RETRYABLE.has(err.code) || attempt === retries) break;
+          await new Promise((resolve) => setTimeout(resolve, 800 * (attempt + 1)));
+        }
       }
+      if (!FALLBACK_ON.has(lastError.code)) break;
     }
     throw lastError;
   };
