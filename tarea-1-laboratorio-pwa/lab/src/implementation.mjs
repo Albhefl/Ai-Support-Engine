@@ -32,16 +32,29 @@ export function validateDraft(raw, inspection) {
   });
 }
 
-export async function generateDraft(store,id,provider) {
- const snapshot=store.beginRequest(id);
- store.update(id,{observaciones:[],manualNotes:'',savedReport:null});
- try {
-  const payload=validateDraft(await provider.generate(snapshot),snapshot);
-  store.update(id,{draft:{payload,sourceRevision:snapshot.revision,requestId:snapshot.requestId},savedReport:payload,aiState:'ready'});
-  return {ok:true};
- }catch(error){store.update(id,{aiState:'error'});return {ok:false,error:error.message};}
+// ── Incidente D · Generar no destruye ni confirma ───────────────────────────
+// La fuente (observaciones, notas manuales) y lo ya confirmado (savedReport)
+// nunca se tocan al generar. El resultado solo vive en `draft`; guardarlo
+// requiere la acción separada confirmDraft. Si el proveedor cae, solo cambia
+// aiState a 'error' y el usuario puede seguir trabajando manualmente.
+export async function generateDraft(store, id, provider) {
+  const snapshot = store.beginRequest(id);
+  try {
+    const payload = validateDraft(await provider.generate(snapshot), snapshot);
+    store.update(id, {
+      draft: { payload, sourceRevision: snapshot.revision, requestId: snapshot.requestId },
+      aiState: 'ready',
+    });
+    return { ok: true };
+  } catch (error) {
+    store.update(id, { aiState: 'error' });
+    return { ok: false, error: error.message };
+  }
 }
-export function confirmDraft(store,id){return store.confirm(id);}
+
+export function confirmDraft(store, id) {
+  return store.confirm(id);
+}
 export function recoverRelease(state,release) {
  state.serverVersion=release.id;
  state.records=[];
