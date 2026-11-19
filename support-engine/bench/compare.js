@@ -26,10 +26,12 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 async function runCase(mode, testCase) {
   const started = Date.now();
   try {
-    const result = finalizeResult(await engines[mode](testCase.message), mode);
+    const raw = await engines[mode](testCase.message);
+    const result = finalizeResult(raw, mode);
     const categoryOk = result.category === testCase.expected.category;
     return {
       ...result,
+      ...(raw.model ? { model: raw.model } : {}),
       formatOk: true,
       categoryOk,
       correct: categoryOk && result.priority === testCase.expected.priority,
@@ -75,14 +77,16 @@ async function main() {
   const meta = {
     executedAt: new Date().toISOString(),
     node: process.version,
-    generativeModel: process.env.GEMINI_API_KEY ? process.env.GEMINI_MODEL || 'gemini-2.5-flash' : null,
+    generativeModels: process.env.GEMINI_API_KEY
+      ? [...new Set(rows.map((r) => r.results.generative.model).filter(Boolean))]
+      : null,
   };
   fs.writeFileSync(path.join(__dirname, 'results.json'), JSON.stringify({ meta, summary, rows }, null, 2) + '\n');
 
   const mark = (ok) => (ok ? 'Sí' : 'No');
   const cell = (r) => (r.error ? `error: ${r.error}` : `${r.category} / ${r.priority}`);
   const lines = [
-    `Ejecución: ${meta.executedAt} · Node ${meta.node} · modelo generativo: ${meta.generativeModel || 'no configurado'}`,
+    `Ejecución: ${meta.executedAt} · Node ${meta.node} · modelo(s) generativo(s): ${meta.generativeModels ? meta.generativeModels.join(', ') || 'ninguno respondió' : 'no configurado'}`,
     '',
     '| # | Tipo | Referencia | Tradicional | Formato | Correcto | Generativo | Formato | Correcto |',
     '|---|---|---|---|:-:|:-:|---|:-:|:-:|',
