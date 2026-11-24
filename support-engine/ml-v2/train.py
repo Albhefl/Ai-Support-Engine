@@ -1,5 +1,6 @@
 """
-Tarea 4 · AI Support Engine V2 — Código 1: separar y entrenar (Clase 02, diapositiva 12).
+Tarea 4 · AI Support Engine V2 — Código 1: separar y entrenar (diapositiva 12)
+y Código 2: evaluar y predecir (diapositiva 13), Clase 02.
 Autor: José Alberto Herrera Flores
 
 Pipeline: TF-IDF (unigramas y bigramas) + Regresión Logística, entrenado con
@@ -43,3 +44,19 @@ print(pd.DataFrame({
 }))
 print(f"Vocabulario TF-IDF (solo train): {len(model.named_steps['tfidf'].vocabulary_)} términos")
 print(f"Clases aprendidas: {list(model.classes_)}")
+
+# ── Código 2 · Evaluar y predecir (diapositiva 13) ──────────────────────────
+from sklearn.metrics import classification_report, confusion_matrix
+
+predictions = model.predict(X_test)
+print()
+print(classification_report(y_test, predictions, zero_division=0))
+print(confusion_matrix(
+    y_test, predictions, labels=model.classes_
+))
+
+new_message = ["Encontré datos de otros clientes"]
+category = model.predict(new_message)[0]
+confidence = model.predict_proba(new_message).max()
+print("Categoría:", category)
+print("Score aproximado:", round(confidence, 3))
