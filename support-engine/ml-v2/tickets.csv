@@ -1,0 +1,201 @@
+message,category
+Sería útil tener recordatorios automáticos de pagos pendientes.,FEATURE
+Un empleado descargó toda la base de clientes antes de renunciar.,SECURITY
+Los archivos adjuntos desaparecen después de enviar el ticket.,BUG
+Un dispositivo desconocido está conectado a la red de la oficina y escanea los puertos.,SECURITY
+Me gustaría recibir notificaciones push cuando cambie el estado de un pedido.,FEATURE
+"Necesito que reactiven mi cuenta, estuve de incapacidad tres meses.",ACCESS
+Quisiera que se pudieran archivar los proyectos terminados.,FEATURE
+La búsqueda no devuelve resultados aunque el registro existe.,BUG
+Propongo que el sistema permita adjuntar varios archivos a la vez.,FEATURE
+Mi jefe me dio de alta pero el usuario no aparece activo.,ACCESS
+Bloquearon mi acceso por inactividad y no sé cómo reactivarlo.,ACCESS
+Agreguen un tablero kanban para organizar los proyectos.,FEATURE
+Solicito permisos de edición en la hoja de inventario compartida.,ACCESS
+Detectamos múltiples intentos de acceso por fuerza bruta en el servidor.,SECURITY
+Al cambiar el idioma a inglés algunos botones desaparecen.,BUG
+Sería útil un modo sin conexión para capturar pedidos en campo.,FEATURE
+La aplicación móvil se cierra al abrir la sección de notificaciones.,BUG
+El becario necesita una cuenta temporal para usar el sistema durante el verano.,ACCESS
+El formulario de búsqueda es vulnerable a inyección SQL.,SECURITY
+Sería bueno conectar el sistema con nuestra tienda en línea.,FEATURE
+La impresora de tickets recibe la orden pero imprime hojas en blanco.,BUG
+Mi cuenta quedó desactivada al regresar de vacaciones.,ACCESS
+Propongo incluir un historial de cambios en cada registro.,FEATURE
+Me piden un código de doble factor pero ya no tengo ese número de teléfono.,ACCESS
+Los logs del servidor muestran los tokens de sesión completos.,SECURITY
+Pedimos una integración con WhatsApp para avisar a los clientes.,FEATURE
+El formulario acepta correos inválidos y luego truena al enviar.,BUG
+Me pide una contraseña de administrador para instalar el cliente.,ACCESS
+El sistema calcula mal los impuestos en las facturas.,BUG
+El campo de comentarios permite insertar código JavaScript que se ejecuta para otros usuarios.,SECURITY
+Sugiero integrar la plataforma con Microsoft Teams.,FEATURE
+Al escribir mi contraseña me dice que la cuenta no existe.,ACCESS
+La nómina se generó con montos duplicados para algunos empleados.,BUG
+Soy nuevo en la empresa y todavía no tengo usuario para el sistema.,ACCESS
+Las videollamadas se cortan a los dos minutos dentro de la plataforma.,BUG
+La gráfica del dashboard aparece vacía desde la actualización.,BUG
+El sistema me pide verificar mi identidad pero no tengo acceso a ese correo.,ACCESS
+Un técnico externo pidió acceso remoto a todas las computadoras sin ningún ticket de por medio.,SECURITY
+La aplicación consume toda la memoria y se vuelve muy lenta.,BUG
+Quisiera poder agregar campos personalizados a la ficha del cliente.,FEATURE
+Sería bueno poder agendar citas con los clientes desde el sistema.,FEATURE
+Me cambiaron de área y ahora no tengo los permisos que necesito.,ACCESS
+Mi usuario aparece como bloqueado después de tres intentos fallidos.,ACCESS
+La app de Android se reinicia cada vez que giro la pantalla.,BUG
+Agreguen exportación de reportes,FEATURE
+El filtro por estado no funciona en la tabla de clientes.,BUG
+No sé cuál es mi usuario para entrar al portal de clientes.,ACCESS
+Quisiera que el tablero se pudiera personalizar con mis gráficas favoritas.,FEATURE
+Sugerimos permitir comentarios en los documentos compartidos.,FEATURE
+Me aparece acceso denegado cuando intento abrir la carpeta compartida.,ACCESS
+No me llega el correo de activación de la cuenta.,ACCESS
+El servidor de correo está enviando spam desde nuestras cuentas.,SECURITY
+El enlace para cambiar la contraseña dice que ya expiró.,ACCESS
+El botón de enviar queda deshabilitado aunque llené todos los campos.,BUG
+Me gustaría poder etiquetar a mis compañeros en las notas.,FEATURE
+Sería útil tener una aplicación para tabletas.,FEATURE
+Estaría bien que pudiéramos asignar prioridades de color a las tareas.,FEATURE
+Los archivos del servidor compartido cambiaron de extensión y apareció una nota pidiendo dinero.,SECURITY
+Las notificaciones por correo llegan repetidas cinco veces.,BUG
+No tengo acceso al tablero de ventas que antes sí veía.,ACCESS
+El mapa de entregas no carga en el navegador Safari.,BUG
+Los reportes mensuales muestran totales incorrectos.,BUG
+El autoguardado borra lo que escribí en lugar de guardarlo.,BUG
+Me gustaría que el chat interno permitiera crear grupos por proyecto.,FEATURE
+Tengo que entrar al panel de administración pero mi perfil es de usuario básico.,ACCESS
+Alguien cambió la contraseña de mi cuenta sin que yo lo pidiera.,SECURITY
+La sincronización con el calendario falla con un error de conexión.,BUG
+Nuestro sitio fue modificado y ahora muestra contenido extraño.,SECURITY
+El carrito de compras se vacía solo al cambiar de página.,BUG
+Sería práctico poder escanear tickets de gasto con la cámara del celular.,FEATURE
+Las horas extras no se suman en el cálculo de la quincena.,BUG
+Estaría padre poder deshacer la última acción con un botón.,FEATURE
+Mi token de acceso a la API fue revocado y necesito uno nuevo.,ACCESS
+Un usuario logró escalar privilegios y ver información de recursos humanos.,SECURITY
+Queremos un widget para ver las ventas del día desde el celular.,FEATURE
+Al subir un archivo grande aparece un error inesperado.,BUG
+Al iniciar sesión me dice que mis credenciales son inválidas aunque son correctas.,ACCESS
+El sistema duplica los pedidos cuando doy clic dos veces.,BUG
+Proponemos un panel de métricas para la dirección.,FEATURE
+Las cámaras de la bodega se pueden ver desde internet sin contraseña.,SECURITY
+Me llegó un enlace falso que imita la página de inicio de sesión de la empresa.,SECURITY
+No puedo desbloquear mi usuario,ACCESS
+El servidor responde con timeout al consultar el inventario.,BUG
+Cuando intento entrar con huella digital me pide la contraseña y no la recuerdo.,ACCESS
+El reporte en Excel se descarga dañado y no se puede abrir.,BUG
+Los cambios que hago en mi perfil no se guardan.,BUG
+El inicio de sesión único no funciona con mi cuenta corporativa.,ACCESS
+La aplicación se cierra al cobrar,BUG
+Requiero acceso al sistema de nómina para revisar mis recibos.,ACCESS
+¿Pueden incluir gráficas de pastel en los reportes de gastos?,FEATURE
+Nuestro antivirus detectó un ransomware en la computadora de recepción.,SECURITY
+Un empleado publicó por error las credenciales de la base de datos en un repositorio público.,SECURITY
+El correo de confirmación de pedido trae el nombre de otro producto.,BUG
+No puedo ingresar con mi cuenta de Google en la plataforma.,ACCESS
+Los descuentos se aplican dos veces en el ticket de venta.,BUG
+Me sale que mi contraseña caducó y no me deja crear una nueva.,ACCESS
+Se filtró una lista de clientes con sus datos personales.,SECURITY
+Instalaron un programa desconocido en los servidores sin autorización.,SECURITY
+Recibimos un mensaje que amenaza con publicar nuestra información si no pagamos.,SECURITY
+¿Podrían agregar la opción de firmar documentos electrónicamente?,FEATURE
+Pedimos que la app sea compatible con lectores de pantalla.,FEATURE
+Cambié de celular y perdí la app de autenticación de doble factor.,ACCESS
+Las fechas se muestran con un día de diferencia en el calendario.,BUG
+La API devuelve los números de tarjeta completos sin enmascarar.,SECURITY
+El botón de guardar no hace nada cuando lleno el formulario.,BUG
+Las claves de la API aparecen visibles en el código de la página web.,SECURITY
+Me quitaron el acceso al módulo de compras y lo necesito para mi trabajo.,ACCESS
+Mi contraseña temporal no funciona en el primer ingreso.,ACCESS
+Un usuario normal puede aprobar sus propios reembolsos modificando la petición.,SECURITY
+Mi cuenta de invitado expiró y necesito que la extiendan.,ACCESS
+Proponemos un programa de puntos para clientes frecuentes dentro de la tienda.,FEATURE
+Me dieron de baja por error y ya no puedo entrar al correo institucional.,ACCESS
+Detectamos tráfico inusual hacia un servidor desconocido desde la red interna.,SECURITY
+La página de inicio tarda más de un minuto en cargar.,BUG
+Nos gustaría poder generar facturas en dólares además de pesos.,FEATURE
+No encuentro dónde restablecer el PIN para entrar a la app.,ACCESS
+El tablero se queda en blanco después de iniciar sesión.,BUG
+Quiero dar de alta a un nuevo integrante de mi equipo en la plataforma.,ACCESS
+Ya restablecí la contraseña dos veces y sigo sin poder entrar a mi perfil.,ACCESS
+Me gustaría ver un resumen semanal de mis tareas pendientes.,FEATURE
+Quisiéramos un reporte de productividad por equipo.,FEATURE
+¿Es posible agregar soporte para varios idiomas?,FEATURE
+No recuerdo mi contraseña y el sistema no me deja restablecerla.,ACCESS
+Necesito que me den permisos para entrar al módulo de contabilidad.,ACCESS
+Me encantaría poder dictar notas por voz dentro de la app.,FEATURE
+El administrador no me ha asignado el rol de supervisor y no veo las aprobaciones.,ACCESS
+Se perdió una laptop de la empresa con información confidencial.,SECURITY
+Hay un script en la página que roba los datos de las tarjetas.,SECURITY
+Es posible ver los datos de otros usuarios cambiando el identificador en la URL.,SECURITY
+Encontramos una memoria USB con malware conectada a un equipo de la oficina.,SECURITY
+Sería bueno que el sistema sugiriera respuestas automáticas a clientes.,FEATURE
+Las imágenes de los productos no se ven en el catálogo.,BUG
+"Olvidé mi nombre de usuario, ¿cómo lo recupero?",ACCESS
+Quiero cambiar el correo asociado a mi cuenta porque ya no uso el anterior.,ACCESS
+La contraseña de administrador del router sigue siendo la de fábrica.,SECURITY
+La lista de pendientes muestra tareas que ya marqué como terminadas.,BUG
+Aparece el mensaje 'Error 404' al abrir mis facturas.,BUG
+Puedo consultar datos de otra cuenta,SECURITY
+Desde la última versión el escáner de códigos de barras no lee nada.,BUG
+Al exportar a PDF el documento sale con las tablas cortadas.,BUG
+Sería genial poder programar el envío de reportes por correo.,FEATURE
+El sistema muestra un error 500 cuando agrego más de diez productos.,BUG
+El portal de proveedores no reconoce mi usuario.,ACCESS
+Las contraseñas de los usuarios se guardan en texto plano.,SECURITY
+Perdí mi llave de seguridad física y no puedo autenticarme.,ACCESS
+Agreguen la opción de pagar con transferencia bancaria.,FEATURE
+Al aplicar un cupón de descuento el total se pone en cero.,BUG
+Queremos que el sistema genere códigos QR para cada producto.,FEATURE
+La paginación de la lista de empleados se salta registros.,BUG
+El código de verificación por SMS nunca me llega.,ACCESS
+El sistema no acepta mi número de empleado para registrarme.,ACCESS
+La app se congela cuando intento grabar un audio.,BUG
+El contador de inventario muestra números negativos.,BUG
+Me llegan cargos en mi tarjeta que no reconozco después de comprar en la plataforma.,SECURITY
+Un exempleado todavía puede entrar a los sistemas internos.,SECURITY
+¿Podrían habilitar la descarga de facturas en formato XML?,FEATURE
+Al imprimir la orden de compra faltan los últimos renglones.,BUG
+Propongo un buscador con filtros avanzados por fecha y monto.,FEATURE
+"Al cerrar sesión, con el botón de atrás del navegador se ven los datos del usuario anterior.",SECURITY
+Nos avisaron que nuestras credenciales aparecen en una filtración de otro sitio.,SECURITY
+Recibí un correo que se hace pasar por soporte y pide mi contraseña.,SECURITY
+Un correo nos pide actualizar con urgencia los datos bancarios del proveedor y parece fraude.,SECURITY
+Nos ayudaría mucho poder importar clientes desde un archivo CSV.,FEATURE
+Propongo que los clientes puedan calificar la atención recibida.,FEATURE
+Pedimos que se pueda duplicar una cotización existente.,FEATURE
+Alguien está usando mi nombre para pedir transferencias a mis compañeros.,SECURITY
+Recibí una llamada de alguien que se hizo pasar por el banco y pidió mi token.,SECURITY
+Los respaldos de la base de datos están accesibles públicamente en internet.,SECURITY
+Después de cambiar mi contraseña ya no puedo entrar desde el móvil.,ACCESS
+Al ordenar por fecha la tabla mezcla los registros de distintos meses.,BUG
+Necesitamos una vista de calendario para las entregas programadas.,FEATURE
+El certificado del sitio fue reemplazado por uno no confiable.,SECURITY
+El correo para recuperar la cuenta llega vacío.,ACCESS
+El enlace para compartir documentos no expira y cualquiera con él puede verlos.,SECURITY
+Solicitamos que el inventario envíe alertas cuando un producto esté por agotarse.,FEATURE
+Un archivo adjunto sospechoso se ejecutó en mi equipo y ahora se comporta raro.,SECURITY
+Los acentos aparecen como símbolos raros en los nombres de los clientes.,BUG
+El sitio de pagos redirige a un dominio extraño antes de pedir la tarjeta.,SECURITY
+El selector de fechas no permite elegir días del próximo año.,BUG
+Cambié mi apellido y necesito actualizar el usuario con el que inicio sesión.,ACCESS
+Alguien inició sesión en mi cuenta desde otro país sin mi permiso.,SECURITY
+Sería práctico tener plantillas para los correos de seguimiento.,FEATURE
+Hay un usuario administrador que nadie del equipo reconoce.,SECURITY
+Agreguen por favor atajos de teclado para las acciones frecuentes.,FEATURE
+Un compañero compartió su usuario y contraseña en el chat general.,SECURITY
+Me gustaría poder cambiar el orden de las columnas de la tabla.,FEATURE
+La exportación a CSV omite la última columna.,BUG
+No puedo acceder a la VPN con mis credenciales del dominio.,ACCESS
+Olvidé las respuestas de mis preguntas de seguridad y no puedo recuperar la cuenta.,ACCESS
+Necesitamos un reporte comparativo de ventas contra el año anterior.,FEATURE
+Sería conveniente agregar una calculadora de descuentos en las ventas.,FEATURE
+Se puede subir un archivo .exe como foto de perfil y se ejecuta en el servidor.,SECURITY
+La aplicación de escritorio muestra una excepción al iniciar.,BUG
+La página de pagos se puede cargar sin HTTPS.,SECURITY
+El chat interno deja de recibir mensajes después de un rato.,BUG
+Necesito acceso de solo lectura al repositorio de documentos.,ACCESS
+Cualquier persona puede borrar facturas sin estar autenticada usando la API.,SECURITY
+Me gustaría tener un modo oscuro en la aplicación.,FEATURE
+Un proveedor nos avisó que le llegaron facturas falsas a nombre de la empresa.,SECURITY
+¿Se podría añadir una opción para dividir pagos en mensualidades?,FEATURE
